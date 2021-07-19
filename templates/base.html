@@ -15,38 +15,46 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-light bg-light">
-                    <div class="container-fluid">
-                      <a class="navbar-brand" href="#">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/480px-Book-icon-bible.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                        My Book Show
-                      </a>
-
-
-                      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown link
+                    <nav class="navbar navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/480px-Book-icon-bible.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                                My Book Show
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                            <h5 class="btn btn-primary">
+                                No of book <span class="badge bg-secondary">0</span>
+                            </h5> 
+                            <form class="d-flex navbar-brand">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
                 </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% for item in product_list %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ product_list.image }}">
+                            </div>
+                            <div class="col-md-8">
+                                <ol class="list-group list-group-numbered">
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                      <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Subheading</div>
+                                        Cras justo odio
+                                      </div>
+                                      <span class="badge bg-primary rounded-pill">14</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

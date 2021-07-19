@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class bookProduct(models.Model):
-    name = models.CharField(max_length = 200)
+    bookName = models.CharField(max_length = 200)
     author = models.CharField(max_length = 200)
     version = models.CharField(max_length = 100)
     publishingYear = models.IntegerField()
@@ -14,4 +14,3 @@ class bookProduct(models.Model):
     class Meta:
         verbose_name = 'book deteail'
 
-        
