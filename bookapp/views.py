@@ -13,8 +13,8 @@ def home(request):
     if item != '' and item is not None:
         product_list = product_list.filter(bookName__icontains=item)
 
-    paginator = Paginator(product_list,4)
-    page_number = request.GET.get('my_page')#my page is just positional argument so don't care about that anything you give you want
+    paginator = Paginator(product_list,6)
+    page_number = request.GET.get('mypage')#my page is just positional argument so don't care about that anything you give you want
     product_list = paginator.get_page(page_number)
 
     context = {'product_list':product_list,'total_books':total_books}

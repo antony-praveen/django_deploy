@@ -18,7 +18,7 @@
                     <nav class="navbar navbar-light bg-light">
                         <div class="container-fluid">
                             <a class="navbar-brand" href="{% url 'home' %}">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/480px-Book-icon-bible.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/480px-Book-icon-bible.png" alt="" width="30" height="24" class="d-inline-block align-text-top" id="title">
                                 My Book Show
                             </a>
                             <h5 class="btn btn-primary">
@@ -54,6 +54,31 @@
             </div>
             <br>
             {% endfor %}
+        </div>
+
+        <!-- page navigation pagination check -->
+        <div class="container">
+            <nav class="Page navigation example">
+                <div class="row">
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if product_list.has_previous %}
+                                <a href="?mypage=1">&laquo; first</a>
+                                <a  href="?mypage={{ product_list.previous_page_number }}">previous</a>
+                            {% endif %}
+                    
+                            <span class="current ">
+                                Page <span class="badge rounded-pill bg-success">{{ product_list.number }}</span> of <span class="badge rounded-pill bg-warning text-dark">{{product_list.paginator.num_pages }}</span> 
+                            </span>
+                    
+                            {% if product_list.has_next %}
+                                <a class="page-item" href="?mypage={{product_list.next_page_number }}">next</a>
+                                <a  href="?mypage={{ product_list.paginator.num_pages }}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
 </body>
