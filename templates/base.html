@@ -6,27 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Book Show</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'bookapp/style.css' %}">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="body">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-light bg-light">
                     <nav class="navbar navbar-light bg-light">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="{% url 'home' %}">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/480px-Book-icon-bible.png" alt="" width="30" height="24" class="d-inline-block align-text-top" id="title">
+                            <a class="navbar-brand" href="{% url 'home' %}" id="title">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/480px-Book-icon-bible.png" alt="" width="30" height="24" class="d-inline-block align-text-top" >
                                 My Book Show
                             </a>
                             <h5 class="btn btn-primary">
                                 No of book <span class="badge bg-secondary">{{ total_books }}</span>
-                            </h5> 
-                            <form class="d-flex navbar-brand">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="item_name">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </h5>
+                            <form class="d-flex navbar-brand" >
+                                <input class="form-control me-2" type="search" placeholder="Search by books name" aria-label="Search" name="item_name">
+                                <button class="btn btn-outline-success " type="submit" >Search</button>
                             </form>
                         </div>
                     </nav>
@@ -36,14 +38,14 @@
         <div class="row">
             {% for item in product_list %}
             <div class="card mb-3 mx-auto" style="max-width: 540px;">
-                <div class="row g-0">
+                <div class="row">
                   <div class="col-md-4">
                     <img src="{{ item.image }}" class="img-fluid rounded-start" alt="Image will Upload">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title" style="color:green;">{{ item.bookName }}</h5>
-                        <p class="card-text">Author: <i>{{ item.author}}</i></p>
+                        <p href="{{item.author}}" class="card-text">Author: <i><a href="{{ item.id}}">{{ item.author}}</a></i></p>
                         <h6>Version: <span class="badge bg-secondary">{{ item.version}}</span></h6>
                         <h6 class="card-title">Publishing Year: {{ item.publishingYear }}</h6>
                         <h6 class="card-title">Price: <span style="color:blueviolet"> {{ item.price}} $</span></h6>

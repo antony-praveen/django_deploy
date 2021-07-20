@@ -1,7 +1,14 @@
-body{
-    background-color: rgb(136, 255, 0);
+#body{
+    background-color: rgb(177, 180, 175);
 }
 
 #title {
-    color: greenyellow;
+    color: rgb(65, 55, 45);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:bold;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+
+#search{
+    align-items: right;
 }

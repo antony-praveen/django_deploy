@@ -19,3 +19,10 @@ def home(request):
 
     context = {'product_list':product_list,'total_books':total_books}
     return render(request, 'base.html', context,)
+
+def author_detail(request,author_name):
+    product_list = bookProduct.objects.get(id=author_name)
+    # author_details = bookProduct.objects.all()
+    # author_name_crop = author_details.filter(author = )
+    return render(request,'author.html',{'product_list':product_list})
+
