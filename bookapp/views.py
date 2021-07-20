@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import bookProduct
+from django.core.paginator import Paginator
 # Create your views here.
 
 def home(request):
@@ -11,6 +12,10 @@ def home(request):
     item = request.GET.get('item_name')
     if item != '' and item is not None:
         product_list = product_list.filter(bookName__icontains=item)
+
+    paginator = Paginator(product_list,4)
+    page_number = request.GET.get('my_page')#my page is just positional argument so don't care about that anything you give you want
+    product_list = paginator.get_page(page_number)
 
     context = {'product_list':product_list,'total_books':total_books}
     return render(request, 'base.html', context,)
